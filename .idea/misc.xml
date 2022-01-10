@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_add_track.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_add_track.xml" value="0.1027984619140625" />
+        <entry key="app/src/main/res/layout/activity_edit_track.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_object_list.xml" value="0.28229166666666666" />
       </map>
     </option>

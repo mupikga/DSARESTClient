@@ -1,6 +1,7 @@
 package com.example.restexample;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +16,15 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
-    private List<Track> dades;
+    private List<Track> tracks;
     private LayoutInflater mInflater;
     private Context context;
 
     //CONSTRUCTOR
-    public ListAdapter (List<Track> itemList, Context context) {
+    public ListAdapter (List<Track> trackList, Context context) {
         this.mInflater = LayoutInflater.from((Context) context);
         this.context = (Context) context;
-        this.dades = itemList;
+        this.tracks = trackList;
     }
 
 
@@ -35,17 +36,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position) {
-        holder.bindData(dades.get(position));
+        holder.bindData(tracks.get(position));
     }
 
 
     @Override
     public int getItemCount() {
-        return dades.size();
+        return tracks.size();
     }
 
-    public void setItems(List<Track> items){
-        dades=items;
+    public void setItems(List<Track> listedTracks){
+        tracks=listedTracks;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -57,9 +58,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             singer=itemView.findViewById(R.id.singerListId);
         }
 
-        void bindData(final Track item){
-            title.setText(item.getTitle());
-            singer.setText(item.getSinger());
+        void bindData(final Track track){
+            Log.i("Track", track.getSinger());
+            title.setText(track.getTitle());
+            singer.setText(track.getSinger());
         }
 
 

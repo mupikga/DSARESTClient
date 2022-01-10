@@ -2,13 +2,14 @@ package com.example.restexample.API;
 import java.io.Serializable;
 
 
-public class Track implements  Serializable{
+public class Track implements Serializable{
     String title;
     String singer;
+    String id;
 
     public Track(String title, String singer) {
-        this.setSinger(singer);
-        this.setTitle(title);
+        this.singer=singer;
+        this.title=title;
     }
 
     public String getTitle() {
@@ -25,6 +26,14 @@ public class Track implements  Serializable{
 
     public void setSinger(String singer) {
         this.singer = singer;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

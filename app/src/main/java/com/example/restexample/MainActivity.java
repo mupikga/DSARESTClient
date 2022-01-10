@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        init();
         Button add = (Button) findViewById(R.id.addTrackId);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        init();
+
 
     }
     public void init(){
@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Track>>() {
             @Override
             public void onResponse(Call<List<Track>> call, Response<List<Track>> response) {
+                Log.i("OnResponse", response.body().toString());
+
                 List<Track> trackList =  response.body();
                 ListAdapter listAdapter =new ListAdapter(trackList, MainActivity.this);
                 RecyclerView recyclerView = findViewById(R.id.recylerView);
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Track>> call, Throwable t) {
+                Log.i("OnResponse", "fail");
+
                 Toast.makeText(MainActivity.this, "Error al carregar la llista", Toast.LENGTH_LONG).show();
             }
         });
